@@ -8,7 +8,6 @@ export interface RootResourceOptions<C> {
   rejectUnauthorized?: boolean;
   camelize?: C;
   queryTimeout?: number | null;
-  rateLimitDuration?: number;
   sudo?: string | number;
   profileToken?: string;
   profileMode?: 'execution' | 'memory';
@@ -108,7 +107,6 @@ export class BaseResource<C extends boolean = false> {
     prefixUrl = '',
     rejectUnauthorized = true,
     queryTimeout = 300000,
-    rateLimitDuration = 60,
     rateLimits = DEFAULT_RATE_LIMITS,
     ...tokens
   }: BaseResourceOptions<C>) {
@@ -143,6 +141,6 @@ export class BaseResource<C extends boolean = false> {
     if (sudo) this.headers.Sudo = `${sudo}`;
 
     // Set requester instance using this information
-    this.requester = requesterFn({ ...this, rateLimits, rateLimitDuration });
+    this.requester = requesterFn({ ...this, rateLimits });
   }
 }

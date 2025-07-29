@@ -135,25 +135,25 @@ export function getGlobalConfig(env = process.env): GlobalCLIConfig {
   return {
     'gb-token': {
       alias: 'gl-token',
-      desc: 'Your GitLab Personal Token',
+      desc: 'Your Gitlab Personal Token',
       type: 'string',
       defaultValue: normalEnv.GITBEAKER_TOKEN,
     },
     'gb-oauth-token': {
       alias: 'gl-oauth-token',
-      desc: 'Your GitLab OAuth Token',
+      desc: 'Your Gitlab OAuth Token',
       type: 'string',
       defaultValue: normalEnv.GITBEAKER_OAUTH_TOKEN,
     },
     'gb-job-token': {
       alias: 'gl-job-token',
-      desc: 'Your GitLab Job Token',
+      desc: 'Your Gitlab Job Token',
       type: 'string',
       defaultValue: normalEnv.GITBEAKER_JOB_TOKEN,
     },
     'gb-host': {
       alias: 'gl-host',
-      desc: 'Your GitLab API host (Defaults to https://www.gitlab.com)',
+      desc: 'Your Gitlab API host (Defaults to https://www.gitlab.com)',
       type: 'string',
       defaultValue: normalEnv.GITBEAKER_HOST,
     },
@@ -192,7 +192,7 @@ export function getGlobalConfig(env = process.env): GlobalCLIConfig {
 }
 
 export function getExposedAPIs(map: Record<string, MethodTemplate[]>) {
-  // Exclude GitLab resource and constants from exposure
+  // Exclude Gitlab resource and constants from exposure
   const { Gitlab, AccessLevel, ...exposed } = map;
 
   return exposed;
